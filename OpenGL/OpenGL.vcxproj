@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="audioplayer.hpp" />
+    <ClInclude Include="camera.hpp" />
+    <ClInclude Include="mesh.hpp" />
+    <ClInclude Include="panel.hpp" />
+    <ClInclude Include="plane.hpp" />
+    <ClInclude Include="scene.hpp" />
+    <ClInclude Include="shader.hpp" />
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="sprite.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Dependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="audioplayer.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="panel.cpp" />
+    <ClCompile Include="plane.cpp" />
+    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="skybox.cpp" />
+    <ClCompile Include="sprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="basic.frag" />
+    <None Include="basic.vert" />
+    <None Include="cam.frag" />
+    <None Include="cam.geom" />
+    <None Include="cam.vert" />
+    <None Include="panel.frag" />
+    <None Include="panel.vert" />
+    <None Include="plane.vert" />
+    <None Include="skybox.frag" />
+    <None Include="skybox.vert" />
+    <None Include="sprite.frag" />
+    <None Include="sprite.geom" />
+    <None Include="sprite.vert" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9DE2A54E-65A9-45E8-98D6-DD0A3EDDCE7D}</ProjectGuid>
+    <RootNamespace>OpenGL</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLEW_32-1.9.0;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_32-1.9.0;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\src;$(SourcePath)</SourcePath>
+    <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_32-1.9.0;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLEW_32-1.9.0;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_32-1.9.0;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\src;$(SourcePath)</SourcePath>
+    <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_32-1.9.0;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLM-0.9.4.3;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLEW_32-1.9.0;$(IncludePath)</IncludePath>
+    <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_32-1.9.0;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_32-1.9.0;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\src;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\SOIL;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLFW_64-3.0.1;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLM-0.9.4.4;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLEW_64-1.10.0;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\FMOD_64-4.44.23;$(IncludePath)</IncludePath>
+    <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\FMOD_64-4.44.23;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_64-3.0.1;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_64-1.10.0;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\SOIL;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_64-3.0.1;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\FMOD_64-4.44.23;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_64-1.10.0;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glew32s.lib;glu32.lib;opengl32.lib;glfw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glew32s.lib;glu32.lib;opengl32.lib;glfw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MinSpace</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glew32s.lib;glu32.lib;opengl32.lib;glfw.lib;fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <MinimalRebuild>true</MinimalRebuild>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glew32.lib;glu32.lib;opengl32.lib;glfw3.lib;fmodex64_vc.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ShowProgress>NotSet</ShowProgress>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

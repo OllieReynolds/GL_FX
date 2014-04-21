@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3328ce19-5e71-41c3-a9bf-7505595537e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{029a065e-a072-4867-a7db-b9cca2012ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{cd64f0e6-06bb-4f02-b5e5-3fa5901e79fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\scene">
+      <UniqueIdentifier>{e78118ad-b2c3-4dac-842a-f977ff7a74c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\scene1">
+      <UniqueIdentifier>{1fdb7c72-e6bf-4232-a812-f61d453f5cd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mesh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="panel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audioplayer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="plane.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="panel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audioplayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="basic.frag">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="basic.vert">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="panel.frag">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="panel.vert">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="plane.vert">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="skybox.frag">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="skybox.vert">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="sprite.vert">
+      <Filter>Shaders\scene1</Filter>
+    </None>
+    <None Include="sprite.geom">
+      <Filter>Shaders\scene1</Filter>
+    </None>
+    <None Include="sprite.frag">
+      <Filter>Shaders\scene1</Filter>
+    </None>
+    <None Include="cam.vert">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="cam.frag">
+      <Filter>Shaders\scene</Filter>
+    </None>
+    <None Include="cam.geom">
+      <Filter>Shaders\scene</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Dependencies" />
+  </ItemGroup>
+</Project>
