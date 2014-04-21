@@ -12,7 +12,7 @@ uniform mat4 MVP;
 uniform float time;
 
 const float min_fog_radius = 1.0;
-const float max_fog_radius = 10.0;
+const float max_fog_radius = 1000.0;
 
 vec4 calcNewPosition(vec4 inputPos)
 {

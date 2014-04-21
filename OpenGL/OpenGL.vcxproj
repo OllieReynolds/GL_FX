@@ -27,10 +27,6 @@
     <ClInclude Include="scene.hpp" />
     <ClInclude Include="shader.hpp" />
     <ClInclude Include="skybox.h" />
-    <ClInclude Include="sprite.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Dependencies" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="audioplayer.cpp" />
@@ -42,22 +38,28 @@
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="skybox.cpp" />
-    <ClCompile Include="sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="basic.frag" />
-    <None Include="basic.vert" />
-    <None Include="cam.frag" />
-    <None Include="cam.geom" />
-    <None Include="cam.vert" />
-    <None Include="panel.frag" />
-    <None Include="panel.vert" />
-    <None Include="plane.vert" />
-    <None Include="skybox.frag" />
-    <None Include="skybox.vert" />
-    <None Include="sprite.frag" />
-    <None Include="sprite.geom" />
-    <None Include="sprite.vert" />
+    <None Include="shader\basic.frag" />
+    <None Include="shader\basic.vert" />
+    <None Include="shader\cam.frag" />
+    <None Include="shader\cam.geom" />
+    <None Include="shader\cam.vert" />
+    <None Include="shader\panel.frag" />
+    <None Include="shader\panel.vert" />
+    <None Include="shader\plane.vert" />
+    <None Include="shader\skybox.frag" />
+    <None Include="shader\skybox.vert" />
+    <None Include="textures\i_bk.tga" />
+    <None Include="textures\i_dn.tga" />
+    <None Include="textures\i_ft.tga" />
+    <None Include="textures\i_lf.tga" />
+    <None Include="textures\i_rt.tga" />
+    <None Include="textures\i_up.tga" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\img.png" />
+    <Image Include="textures\panel.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9DE2A54E-65A9-45E8-98D6-DD0A3EDDCE7D}</ProjectGuid>

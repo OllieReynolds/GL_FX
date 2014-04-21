@@ -8,12 +8,8 @@
 #include <gtx/quaternion.hpp>
 #include <gtc/matrix_transform.hpp> 
 #include <vector>
-#include <iostream>
 
-using std::cout;
-using std::endl;
 using std::vector;
-
 
 class Camera
 {

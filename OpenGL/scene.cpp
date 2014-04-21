@@ -12,19 +12,19 @@ Scene::Scene() {
 	);
 	
 	basicShader = new Shader();
-	basicShader->create("basic.vert", "basic.frag", NULL, NULL, NULL);
+	basicShader->create("shader/basic.vert", "shader/basic.frag", NULL, NULL, NULL);
 	
 	skyboxShader = new Shader();
-	skyboxShader->create("skybox.vert", "skybox.frag", NULL, NULL, NULL);
+	skyboxShader->create("shader/skybox.vert", "shader/skybox.frag", NULL, NULL, NULL);
 
 	panelShader = new Shader();
-	panelShader->create("panel.vert", "panel.frag", NULL, NULL, NULL);
+	panelShader->create("shader/panel.vert", "shader/panel.frag", NULL, NULL, NULL);
 
 	planeShader = new Shader();
-	planeShader->create("plane.vert", "panel.frag", NULL, NULL, NULL);
+	planeShader->create("shader/plane.vert", "shader/panel.frag", NULL, NULL, NULL);
 
 	camShader = new Shader();
-	camShader->create("cam.vert", "cam.frag", NULL, NULL, NULL);
+	camShader->create("shader/cam.vert", "shader/cam.frag", NULL, NULL, NULL);
 
 	mesh = new Mesh();
 	mesh->create();
@@ -55,17 +55,26 @@ Scene::~Scene() {
 void Scene::draw(GLFWwindow *window)
 {
 	if (recompileShaders) {
+		delete basicShader;
 		basicShader = new Shader();
-		basicShader->create("basic.vert", "basic.frag", NULL, NULL, NULL);
+		basicShader->create("shader/basic.vert", "shader/basic.frag", NULL, NULL, NULL);
 	
+		delete skyboxShader;
 		skyboxShader = new Shader();
-		skyboxShader->create("skybox.vert", "skybox.frag", NULL, NULL, NULL);
+		skyboxShader->create("shader/skybox.vert", "shader/skybox.frag", NULL, NULL, NULL);
 
+		delete panelShader;
 		panelShader = new Shader();
-		panelShader->create("panel.vert", "panel.frag", NULL, NULL, NULL);
+		panelShader->create("shader/panel.vert", "shader/panel.frag", NULL, NULL, NULL);
 
+		delete planeShader;
 		planeShader = new Shader();
-		planeShader->create("plane.vert", "panel.frag", NULL, NULL, NULL);
+		planeShader->create("shader/plane.vert", "shader/panel.frag", NULL, NULL, NULL);
+
+		delete camShader;
+		camShader = new Shader();
+		camShader->create("shader/cam.vert", "shader/cam.frag", NULL, NULL, NULL);
+		
 		recompileShaders = false;
 	}
 

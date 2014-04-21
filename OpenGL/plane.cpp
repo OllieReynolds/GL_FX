@@ -81,7 +81,7 @@ Plane::Plane(float sizeX, float sizeZ, int facesX, int facesZ) {
 	glActiveTexture(GL_TEXTURE2);
 	glGenTextures(1, &texture_data);
 	glBindTexture(GL_TEXTURE_2D, texture_data);
-	image = SOIL_load_image("panel.png", &width, &height, 0, SOIL_LOAD_RGBA);
+	image = SOIL_load_image("textures/panel.png", &width, &height, 0, SOIL_LOAD_RGBA);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

@@ -15,14 +15,16 @@ float rainbow(float x)
 
 void main()	
 {
-	vec2 position = ( 2.0*gl_FragCoord.xy - vec2(640, 480)) / 640;
+	//vec2 position = ( 2.0*gl_FragCoord.xy - vec2(640, 480)) / 640;
 
-	vec3 color = vec3(0.0);
+	//vec3 color = vec3(0.0);
 
-	float r = length(position);
-	float a = atan(position.y, position.x);
+	//float r = length(position);
+	//float a = atan(position.y, position.x);
 
-	float b = a*sin(.001)*24000.0/3.14159;
-	outColor = vec4(rainbow(b+3.0), rainbow(b+1.0), rainbow(b+0.0), 1.0);
+	//float b = a*sin(.001)*24000.0/3.14159;
+//	outColor = vec4(rainbow(b+3.0), rainbow(b+1.0), rainbow(b+0.0), 1.0);
+
+	outColor = vec4(0.f, 1.f, 1.f, 1.f);
 
 }

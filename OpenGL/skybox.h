@@ -5,19 +5,12 @@
 #include <SOIL.h>
 #include <Windows.h>
 
-//#define FRONT	"negz.jpg"
-//#define BACK	"posz.jpg"
-//#define TOP		"posy.jpg"
-//#define BOTTOM	"negy.jpg"
-//#define LEFT	"negx.jpg"
-//#define RIGHT	"posx.jpg"
-
-#define FRONT	"i_ft.tga"
-#define BACK	"i_bk.tga"
-#define TOP		"i_up.tga"
-#define BOTTOM	"i_dn.tga"
-#define LEFT	"i_lf.tga"
-#define RIGHT	"i_rt.tga"
+#define FRONT	"textures/i_ft.tga"
+#define BACK	"textures/i_bk.tga"
+#define TOP		"textures/i_up.tga"
+#define BOTTOM	"textures/i_dn.tga"
+#define LEFT	"textures/i_lf.tga"
+#define RIGHT	"textures/i_rt.tga"
 
 class Skybox
 {

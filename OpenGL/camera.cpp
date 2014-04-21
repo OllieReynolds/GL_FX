@@ -26,17 +26,25 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 
 	glGenBuffers(1, &vbo);
 
+	float x = rand() % 200;//sin(glfwGetTime())  * 100.;
+	float y = rand() % 200;//sin(glfwGetTime() * 0.6) * 16;
+	float z = rand() % 200;//cos(glfwGetTime())  * 100.;
+
+	positions.push_back(x);
+	positions.push_back(y);
+	positions.push_back(z);
+
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW); 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
 
-	glLineWidth(2.f);
+//	glLineWidth(2.f);
 }
 
 void Camera::update(GLFWwindow *window)
 {
-	if (viewChanged)
+	if (viewChanged && glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
 		recomputeView();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -48,9 +56,13 @@ void Camera::update(GLFWwindow *window)
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		position += right * 2.5f;
 
-	float x = sin(glfwGetTime())  * 100.;
-	float y = sin(glfwGetTime() * 0.6) * 16;
-	float z = cos(glfwGetTime())  * 100.;
+	float x = positions.at(positions.size()-3) + (rand() % 32) - 16;
+	float y = positions.at(positions.size()-2) + (rand() % 32) - 16;
+	float z = positions.at(positions.size()-1) + (rand() % 32) - 16;
+
+	x = glm::clamp(x, -100.f, 100.f);
+	y = glm::clamp(y, 0.f, 100.f);
+	z = glm::clamp(z, -100.f, 100.f);
 
 	//if (mouseClicked) {
 		positions.push_back(x);
@@ -75,7 +87,7 @@ void Camera::update(GLFWwindow *window)
 
 void Camera::draw() {
 	glBindVertexArray(vao);
-	glDrawArrays(GL_POINTS, 0, positions.size() / 3);
+	glDrawArrays(GL_LINE_STRIP, 0, positions.size() / 3);
 }
 
 void Camera::recomputeView()
