@@ -49,9 +49,14 @@ void Shader::use() {
 	glUseProgram(program);
 }
 
-void Shader::updateMat4(glm::mat4 m, const GLchar* name) {
+//void Shader::updateMat4(glm::mat4 m, const GLchar* name) {
+//	GLint loc = glGetUniformLocation(program, name);
+//	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(m));
+//}
+
+void Shader::updateMat4(const GLchar* name, GLsizei n, const GLfloat* value) {
 	GLint loc = glGetUniformLocation(program, name);
-	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(m));
+	glUniformMatrix4fv(loc, n, GL_FALSE, value);
 }
 
 void Shader::update1i(int i, const GLchar* name) {

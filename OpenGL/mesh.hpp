@@ -27,13 +27,15 @@ public:
 	glm::mat4 modelMatrix;
 	glm::mat4 rotMatrix;
 
+	std::vector<glm::mat4> translationMatrices;
+
 private:
 	int	elementCount;
 
 	GLuint buffer[4];
 	GLuint vertexArrayObject;
 
-	std::vector<glm::mat4> translationMatrices;
+	
 };
 
 #endif // MESH_HPP

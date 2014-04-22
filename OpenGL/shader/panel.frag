@@ -7,7 +7,7 @@ uniform sampler2D tex;
 
 out vec4 outColor;
 
-const vec4 fog_colour = vec4 (0., 0., 1.0, 1.0);
+const vec4 fog_colour = vec4 (0.f, 0.f, 0.f, 0.f);
 
 vec4 glow(vec2 p, vec3 c, float pow) {
 	return vec4(vec3(pow / (length(p)) * c), 1.0);

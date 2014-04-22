@@ -48,13 +48,13 @@ void Camera::update(GLFWwindow *window)
 		recomputeView();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		position += target * 2.5f;
+		position += target * .5f;
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		position -= target * 2.5f;
+		position -= target * .5f;
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		position -= right * 2.5f;
+		position -= right * .5f;
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		position += right * 2.5f;
+		position += right * .5f;
 
 	float x = positions.at(positions.size()-3) + (rand() % 32) - 16;
 	float y = positions.at(positions.size()-2) + (rand() % 32) - 16;

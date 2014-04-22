@@ -59,9 +59,8 @@ void AudioPlayer::beatDetect()
 		beatDetected = true;
 	}
 
-	if (beatDetected) {
-		scaleMatrix *= glm::rotate(glm::mat4(1.0), 15.f, glm::vec3(0, 0, 1));
-	} 
+	if (beatDetected)
+		//scaleMatrix *= glm::rotate(glm::mat4(1.0), 10.f, glm::vec3(0, 1, 0));
 
 	if (GetTickCount64() - beatLastTick >= beatPostIgnore)
 		beatLastTick = 0;

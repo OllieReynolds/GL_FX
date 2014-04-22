@@ -61,10 +61,7 @@ void Mesh::create()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &elementCount);
 
-	for (int i = 1; i <= 10; i++)
-		for (int j = 1; j <= 10; j++)
-			translationMatrices.push_back(glm::translate(glm::mat4(1.0), glm::vec3(i, 1., j)));
-
+	modelMatrix *= glm::scale(glm::mat4(1.), glm::vec3(10.f, 10.f, 10.f));
 }
 
 void Mesh::kill()

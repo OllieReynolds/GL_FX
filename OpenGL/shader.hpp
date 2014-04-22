@@ -44,7 +44,8 @@ public:
 
 	void use();
 
-	void updateMat4(glm::mat4 m, const GLchar* name);
+	//void updateMat4(glm::mat4 m, const GLchar* name);
+	void updateMat4(const GLchar* name, GLsizei n, const GLfloat* value);
 	void update1i(int i, const GLchar* name);
 	void update1f(float d, const GLchar* name);
 

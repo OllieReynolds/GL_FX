@@ -33,7 +33,7 @@ Scene::Scene() {
 	plane->modelMatrix *= glm::translate(glm::mat4(1.0), glm::vec3(0, -64, 0));
 
 	skybox = new Skybox();
-	glClearColor(1.f, 1.f, 1.f, 1.f);
+	//glClearColor(1.f, 1.f, 1.f, 1.f);
 
 	panel = new Panel();
 }
@@ -41,15 +41,13 @@ Scene::Scene() {
 Scene::~Scene() {
 	delete panel;
 	delete skybox;
-
 	delete plane;
-
 	delete camera;
-	mesh->kill();
-	
-
-	//basicShader->kill();
-	//skyboxShader->kill();
+	delete basicShader;
+	delete skyboxShader;
+	delete panelShader;
+	delete planeShader;
+	delete camShader;
 }
 
 void Scene::draw(GLFWwindow *window)
@@ -84,38 +82,41 @@ void Scene::draw(GLFWwindow *window)
 
 	camera->update(window);
 
-	skyboxShader->use();
-	skyboxShader->updateMat4(camera->projMatrix, "P");
-	skyboxShader->updateMat4(camera->getSkyboxViewMatrix(), "V");
-	skybox->draw();
+	/*skyboxShader->use();
+	skyboxShader->updateMat4("P", 1, glm::value_ptr(camera->projMatrix));
+	skyboxShader->updateMat4("V", 1, glm::value_ptr(camera->getSkyboxViewMatrix()));
+	skybox->draw();*/
 
 	glm::mat4 MV = camera->viewMatrix * mesh->modelMatrix * AudioPlayer::scaleMatrix;
 	glm::mat4 MVP = camera->projMatrix * MV;
+
+
 	basicShader->use();
 	basicShader->update1f((float)glfwGetTime(), "time");
-	basicShader->updateMat4(MV, "MV");
-	basicShader->updateMat4(MVP, "MVP");
-	mesh->drawInstanced(100);
+	basicShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
+	mesh->drawInstanced(1337);
+
+	
 
 	MV = camera->viewMatrix * plane->modelMatrix;
 	MVP = camera->projMatrix * MV;
 	planeShader->use();
 	planeShader->update1i(2, "tex");
-	planeShader->updateMat4(MV, "MV");
-	planeShader->updateMat4(MVP, "MVP");
+	planeShader->updateMat4("MV", 1, glm::value_ptr(MV));
+	planeShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
 	plane->draw();
 
 	MV = camera->viewMatrix * camera->modelMatrix;
 	MVP = camera->projMatrix * MV;
 	camShader->use();
-	camShader->updateMat4(MV, "MV");
-	camShader->updateMat4(MVP, "MVP");
+	camShader->updateMat4("MV", 1, glm::value_ptr(MV));
+	camShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
 	camera->draw();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDisable(GL_DEPTH_TEST);
 
 	panelShader->use();
-	panelShader->updateMat4(panel->modelMatrix, "M");
+	panelShader->updateMat4("M", 1, glm::value_ptr(panel->modelMatrix));
 	panel->draw();
 }
