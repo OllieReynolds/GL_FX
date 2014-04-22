@@ -18,14 +18,10 @@ public:
 	enum Buffer { VERTEX, UV, INDEX, NORMAL };
 
 	void create();
-	void update();
 	void kill();
 
 	void draw();
 	void drawInstanced(int count);
-
-private:
-	void loadModel();
 
 public:
 	glm::mat4 modelMatrix;
@@ -34,8 +30,10 @@ public:
 private:
 	int	elementCount;
 
-	GLuint buffer[3];
+	GLuint buffer[4];
 	GLuint vertexArrayObject;
+
+	std::vector<glm::mat4> translationMatrices;
 };
 
 #endif // MESH_HPP

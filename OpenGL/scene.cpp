@@ -95,7 +95,7 @@ void Scene::draw(GLFWwindow *window)
 	basicShader->update1f((float)glfwGetTime(), "time");
 	basicShader->updateMat4(MV, "MV");
 	basicShader->updateMat4(MVP, "MVP");
-	mesh->drawInstanced(1000);
+	mesh->drawInstanced(100);
 
 	MV = camera->viewMatrix * plane->modelMatrix;
 	MVP = camera->projMatrix * MV;

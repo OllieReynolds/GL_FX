@@ -2,6 +2,7 @@
  
 layout (location = 0) in vec4 inPosition;
 layout (location = 1) in vec4 inColor;	
+layout (location = 2) in mat4 tMat;
 
 out vec4 exColor;		
 out float fog_fac;				
@@ -31,12 +32,12 @@ vec4 calcNewPosition(vec4 inputPos)
 
 void main()
 {
-	vec4 finalPos = calcNewPosition(inPosition);
-	vec3 finalPosCamSpace = (MV * finalPos).xyz;
+	//vec4 finalPos = calcNewPosition(inPosition);
+	//vec3 finalPosCamSpace = (MV * finalPos).xyz;
 
-	float dist = length(-finalPosCamSpace);
-	float fog_f = (dist - min_fog_radius) / (max_fog_radius - min_fog_radius);
-	fog_fac = clamp(fog_f, 0.0, 1.0);
+	//float dist = length(-finalPosCamSpace);
+	//float fog_f = (dist - min_fog_radius) / (max_fog_radius - min_fog_radius);
+	//fog_fac = clamp(fog_f, 0.0, 1.0);
 
 	gl_Position = MVP * finalPos;
 	exColor = inColor;

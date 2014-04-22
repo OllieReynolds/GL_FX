@@ -45,7 +45,7 @@ void Mesh::create()
 	glGenVertexArrays(1, &vertexArrayObject);
 	glBindVertexArray(vertexArrayObject);
 
-	glGenBuffers(3, buffer);
+	glGenBuffers(4, buffer);
 
 	glBindBuffer(GL_ARRAY_BUFFER, buffer[VERTEX]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); 
@@ -60,6 +60,11 @@ void Mesh::create()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer[INDEX]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &elementCount);
+
+	for (int i = 1; i <= 10; i++)
+		for (int j = 1; j <= 10; j++)
+			translationMatrices.push_back(glm::translate(glm::mat4(1.0), glm::vec3(i, 1., j)));
+
 }
 
 void Mesh::kill()
@@ -75,26 +80,10 @@ void Mesh::kill()
 	glDeleteVertexArrays(1, &vertexArrayObject);
 }
 
-void Mesh::update()
-{
-	
-}
-
-void Mesh::draw()
-{
-	glBindVertexArray(vertexArrayObject);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer[INDEX]);
-	glDrawElements(GL_POINTS, elementCount, GL_UNSIGNED_SHORT, 0);
-}
 
 void Mesh::drawInstanced(int count)
 {
 	glBindVertexArray(vertexArrayObject);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer[INDEX]);
 	glDrawElementsInstanced(GL_TRIANGLES, elementCount, GL_UNSIGNED_SHORT, 0, count);
-}
-
-void Mesh::loadModel()
-{
-
 }
