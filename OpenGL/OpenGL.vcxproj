@@ -40,8 +40,8 @@
     <ClCompile Include="skybox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\basic.frag" />
-    <None Include="shader\basic.vert" />
+    <None Include="shader\default.frag" />
+    <None Include="shader\cubefield.vert" />
     <None Include="shader\cam.frag" />
     <None Include="shader\cam.geom" />
     <None Include="shader\cam.vert" />

@@ -55,7 +55,7 @@ void Scene::draw(GLFWwindow *window)
 	if (recompileShaders) {
 		delete basicShader;
 		basicShader = new Shader();
-		basicShader->create("shader/basic.vert", "shader/basic.frag", NULL, NULL, NULL);
+		basicShader->create("shader/cubefield.vert", "shader/default.frag", NULL, NULL, NULL);
 	
 		delete skyboxShader;
 		skyboxShader = new Shader();
@@ -87,17 +87,12 @@ void Scene::draw(GLFWwindow *window)
 	skyboxShader->updateMat4("V", 1, glm::value_ptr(camera->getSkyboxViewMatrix()));
 	skybox->draw();*/
 
-	glm::mat4 MV = camera->viewMatrix * mesh->modelMatrix * AudioPlayer::scaleMatrix;
+	glm::mat4 MV = camera->viewMatrix * mesh->modelMatrix;
 	glm::mat4 MVP = camera->projMatrix * MV;
-
-
 	basicShader->use();
-	basicShader->update1f((float)glfwGetTime(), "time");
 	basicShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
-	mesh->drawInstanced(1337);
-
+	mesh->drawInstanced(10000);
 	
-
 	MV = camera->viewMatrix * plane->modelMatrix;
 	MVP = camera->projMatrix * MV;
 	planeShader->use();
