@@ -34,6 +34,9 @@ public:
 	glm::mat4 getSkyboxViewMatrix();
 
 private:
+	const float moveSpeed = 1.5f;
+
+
 	void recomputeView();
 
 	glm::fquat lerp(const glm::fquat& v0, const glm::fquat& v1, float angle);

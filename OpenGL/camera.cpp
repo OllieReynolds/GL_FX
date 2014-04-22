@@ -48,14 +48,15 @@ void Camera::update(GLFWwindow *window)
 		recomputeView();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		position += target * .5f;
+		position += target * moveSpeed;
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		position -= target * .5f;
+		position -= target * moveSpeed;
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		position -= right * .5f;
+		position -= right * moveSpeed;
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		position += right * .5f;
+		position += right * moveSpeed;
 
+	
 	float x = positions.at(positions.size()-3) + (rand() % 32) - 16;
 	float y = positions.at(positions.size()-2) + (rand() % 32) - 16;
 	float z = positions.at(positions.size()-1) + (rand() % 32) - 16;
@@ -75,8 +76,10 @@ void Camera::update(GLFWwindow *window)
 
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW); 
-		mouseClicked = false;
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW);
+
+
+		//mouseClicked = false;
 
 	//}
 
