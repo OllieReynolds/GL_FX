@@ -34,7 +34,7 @@ public:
 	glm::mat4 getSkyboxViewMatrix();
 
 private:
-	const float moveSpeed = 1.5f;
+	static const float moveSpeed;
 
 
 	void recomputeView();

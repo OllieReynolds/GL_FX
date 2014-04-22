@@ -1,5 +1,7 @@
 #include "camera.hpp"
 
+const float Camera::moveSpeed = 1.5f;
+
 bool Camera::viewChanged = true;
 bool Camera::mouseClicked = false;
 
@@ -12,7 +14,7 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 		FOV(fieldOfView), 
 		aspectRatio(aspectRatio), 
 		mouseSpeed(mouseSpeed),
-		nearClipping(0.1f),
+		nearClipping(1.f),
 		up(glm::vec3(0.f, 1.f, 0.f)),
 		angle(glm::vec2(3.14f, 0.f)) 
 { 
@@ -38,8 +40,6 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW); 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
-
-//	glLineWidth(2.f);
 }
 
 void Camera::update(GLFWwindow *window)
