@@ -21,6 +21,7 @@ static const int HEIGHT		= 480;
 int main()
 {
 	glfwInit();
+	glfwWindowHint(GLFW_DEPTH_BITS, 24);
 	glfwWindowHint( GLFW_SAMPLES, SAMPLES );
 	glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
 	glfwWindowHint( GLFW_VERSION_MAJOR, MAJOR );
@@ -45,7 +46,7 @@ int main()
 
 	glewInit();
 
-	glDepthFunc(GL_LESS);
+	glEnable(GL_DEPTH_TEST);
 
 	Scene* scene = new Scene();
 

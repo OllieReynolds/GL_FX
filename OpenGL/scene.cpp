@@ -10,9 +10,11 @@ Scene::Scene() {
 		1.3333f, // Aspect ratio
 		0.002f	// mouse speed
 	);
+
+	camera->initMatrices();
 	
 	basicShader = new Shader();
-	basicShader->create("shader/basic.vert", "shader/basic.frag", NULL, NULL, NULL);
+	basicShader->create("shader/cubefield.vert", "shader/default.frag", NULL, NULL, NULL);
 	
 	skyboxShader = new Shader();
 	skyboxShader->create("shader/skybox.vert", "shader/skybox.frag", NULL, NULL, NULL);
@@ -26,16 +28,14 @@ Scene::Scene() {
 	camShader = new Shader();
 	camShader->create("shader/cam.vert", "shader/cam.frag", NULL, NULL, NULL);
 
-	mesh = new Mesh();
-	mesh->create();
-
 	plane = new Plane(10000.f, 10000.f, 100, 100);
 	plane->modelMatrix *= glm::translate(glm::mat4(1.0), glm::vec3(0, -64, 0));
 
 	skybox = new Skybox();
-	//glClearColor(1.f, 1.f, 1.f, 1.f);
 
 	panel = new Panel();
+
+	test = new meshv2();
 }
 
 Scene::~Scene() {
@@ -82,19 +82,12 @@ void Scene::draw(GLFWwindow *window)
 
 	camera->update(window);
 
-	/*skyboxShader->use();
-	skyboxShader->updateMat4("P", 1, glm::value_ptr(camera->projMatrix));
-	skyboxShader->updateMat4("V", 1, glm::value_ptr(camera->getSkyboxViewMatrix()));
-	skybox->draw();*/
 
-	glm::mat4 MV = camera->viewMatrix * mesh->modelMatrix;
-	glm::mat4 MVP = camera->projMatrix * MV;
 	basicShader->use();
-	basicShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
-	mesh->drawInstanced(10000);
+	test->draw(basicShader);
 	
-	MV = camera->viewMatrix * plane->modelMatrix;
-	MVP = camera->projMatrix * MV;
+	glm::mat4 MV = camera->viewMatrix * plane->modelMatrix;
+	glm::mat4 MVP = camera->projMatrix * MV;
 	planeShader->use();
 	planeShader->update1i(2, "tex");
 	planeShader->updateMat4("MV", 1, glm::value_ptr(MV));
