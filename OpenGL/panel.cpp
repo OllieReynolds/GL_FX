@@ -62,7 +62,9 @@ Panel::~Panel() {
 	glDeleteTextures(1, &texture_data);
 }
 
-void Panel::draw() {
+void Panel::draw(Shader* shader) {
+	shader->updateMat4("M", 1, glm::value_ptr(modelMatrix));
+
 	glBindVertexArray(vao);
 	glBindTexture(GL_TEXTURE_2D, texture_data);
 	glDrawArrays(GL_TRIANGLES, 0, 6);

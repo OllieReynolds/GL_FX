@@ -2,13 +2,13 @@
 #define SCENE_HPP
 
 #include "camera.hpp"
-//#include "mesh.hpp"
 #include "shader.hpp"
 #include "skybox.h"
 #include "panel.hpp"
 #include "plane.hpp"
 #include "audioplayer.hpp"
 #include "meshv2.hpp"
+#include "shader_manager.hpp"
 
 class Scene
 {
@@ -34,11 +34,15 @@ private:
 
 	Panel*	panel;
 
-	Shader*	basicShader;
-	Shader* skyboxShader;
-	Shader* panelShader;
-	Shader* planeShader;
-	Shader* camShader;
+	Shader* activeShader;
+
+	//Shader*	basicShader;
+	//Shader* skyboxShader;
+	//Shader* panelShader;
+	//Shader* planeShader;
+	//Shader* camShader;
+
+	ShaderManager* shaderMgr;
 	
 };
 

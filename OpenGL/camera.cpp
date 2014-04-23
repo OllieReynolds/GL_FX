@@ -20,10 +20,6 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 		up(glm::vec3(0.f, 1.f, 0.f)),
 		angle(glm::vec2(3.14f, 0.f)) 
 { 
-	//viewMatrix = glm::lookAt(position, target, up);
-//	projMatrix = glm::perspective(FOV, aspectRatio, nearClipping, 100.f);
-	//projMatrix = glm::infinitePerspective(FOV, aspectRatio, nearClipping);
-
 	positions = vector<float>();
 
 	glGenVertexArrays(1, &vao);
@@ -31,9 +27,9 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 
 	glGenBuffers(1, &vbo);
 
-	float x = rand() % 200;//sin(glfwGetTime())  * 100.;
-	float y = rand() % 200;//sin(glfwGetTime() * 0.6) * 16;
-	float z = rand() % 200;//cos(glfwGetTime())  * 100.;
+	float x = rand() % 200;
+	float y = rand() % 200;
+	float z = rand() % 200;
 
 	positions.push_back(x);
 	positions.push_back(y);
@@ -73,30 +69,28 @@ void Camera::update(GLFWwindow *window)
 	y = glm::clamp(y, 0.f, 100.f);
 	z = glm::clamp(z, -100.f, 100.f);
 
-	//if (mouseClicked) {
-		positions.push_back(x);
-		positions.push_back(y);
-		positions.push_back(z);
+	positions.push_back(x);
+	positions.push_back(y);
+	positions.push_back(z);
 
-		if (positions.size() > 600) {
-			positions.erase(positions.begin(), positions.begin()+3);
-		}
+	if (positions.size() > 600) {
+		positions.erase(positions.begin(), positions.begin()+3);
+	}
 
-		glBindVertexArray(vao);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW);
-
-
-		//mouseClicked = false;
-
-	//}
-
-	
+	glBindVertexArray(vao);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW);
 
 	viewMatrix = glm::lookAt(position, position + target, up);
 }
 
-void Camera::draw() {
+void Camera::draw(Shader* shader) {
+	glm::mat4 MV = viewMatrix * modelMatrix;
+	glm::mat4 MVP = projMatrix * MV;
+	
+	shader->updateMat4("MV", 1, glm::value_ptr(MV));
+	shader->updateMat4("MVP", 1, glm::value_ptr(MVP));
+
 	glBindVertexArray(vao);
 	glDrawArrays(GL_LINE_STRIP, 0, positions.size() / 3);
 }

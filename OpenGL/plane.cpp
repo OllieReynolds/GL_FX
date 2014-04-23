@@ -94,13 +94,22 @@ Plane::Plane(float sizeX, float sizeZ, int facesX, int facesZ) {
 	delete normals;
 	delete uvs;
 	delete indices;
+
+	modelMatrix *= glm::translate(glm::mat4(1.0), glm::vec3(0, -64, 0));
 }
 
 Plane::~Plane() {
 
 }
 
-void Plane::draw() {
+void Plane::draw(Shader* shader) {
+	glm::mat4 MV = Camera::viewMatrix * modelMatrix;
+	glm::mat4 MVP = Camera::projMatrix * MV;
+
+	shader->update1i(2, "tex");
+	shader->updateMat4("MV", 1, glm::value_ptr(MV));
+	shader->updateMat4("MVP", 1, glm::value_ptr(MVP));
+
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 6 * faces, GL_UNSIGNED_INT, 0);
 }

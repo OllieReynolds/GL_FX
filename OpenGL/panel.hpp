@@ -9,12 +9,14 @@
 #include <gtx/quaternion.hpp>
 #include <gtc/matrix_transform.hpp> 
 
+#include "shader.hpp"
+
 class Panel {
 public:
 	Panel();
 	~Panel();
 
-	void draw();
+	void draw(Shader* shader);
 
 	GLuint fbo;
 	glm::mat4 modelMatrix;

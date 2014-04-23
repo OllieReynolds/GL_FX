@@ -2,7 +2,9 @@
 
 bool Scene::recompileShaders = false;
 
-Scene::Scene() {
+Scene::Scene() 
+	:	activeShader(NULL)
+{
 	camera = new Camera(
 		glm::vec3(0.0, 0.0, 0.0),	// Position
 		glm::vec3(0.0, 0.0, -4.0),	// Target
@@ -10,26 +12,11 @@ Scene::Scene() {
 		1.3333f, // Aspect ratio
 		0.002f	// mouse speed
 	);
-
 	camera->initMatrices();
 	
-	basicShader = new Shader();
-	basicShader->create("shader/cubefield.vert", "shader/default.frag", NULL, NULL, NULL);
-	
-	skyboxShader = new Shader();
-	skyboxShader->create("shader/skybox.vert", "shader/skybox.frag", NULL, NULL, NULL);
-
-	panelShader = new Shader();
-	panelShader->create("shader/panel.vert", "shader/panel.frag", NULL, NULL, NULL);
-
-	planeShader = new Shader();
-	planeShader->create("shader/plane.vert", "shader/panel.frag", NULL, NULL, NULL);
-
-	camShader = new Shader();
-	camShader->create("shader/cam.vert", "shader/cam.frag", NULL, NULL, NULL);
+	shaderMgr = new ShaderManager();
 
 	plane = new Plane(10000.f, 10000.f, 100, 100);
-	plane->modelMatrix *= glm::translate(glm::mat4(1.0), glm::vec3(0, -64, 0));
 
 	skybox = new Skybox();
 
@@ -43,36 +30,15 @@ Scene::~Scene() {
 	delete skybox;
 	delete plane;
 	delete camera;
-	delete basicShader;
-	delete skyboxShader;
-	delete panelShader;
-	delete planeShader;
-	delete camShader;
+
+	delete shaderMgr;
 }
 
 void Scene::draw(GLFWwindow *window)
 {
 	if (recompileShaders) {
-		delete basicShader;
-		basicShader = new Shader();
-		basicShader->create("shader/cubefield.vert", "shader/default.frag", NULL, NULL, NULL);
-	
-		delete skyboxShader;
-		skyboxShader = new Shader();
-		skyboxShader->create("shader/skybox.vert", "shader/skybox.frag", NULL, NULL, NULL);
-
-		delete panelShader;
-		panelShader = new Shader();
-		panelShader->create("shader/panel.vert", "shader/panel.frag", NULL, NULL, NULL);
-
-		delete planeShader;
-		planeShader = new Shader();
-		planeShader->create("shader/plane.vert", "shader/panel.frag", NULL, NULL, NULL);
-
-		delete camShader;
-		camShader = new Shader();
-		camShader->create("shader/cam.vert", "shader/cam.frag", NULL, NULL, NULL);
-		
+		// Implement shader program recompilation here
+		// Refactor to function when working
 		recompileShaders = false;
 	}
 
@@ -82,29 +48,18 @@ void Scene::draw(GLFWwindow *window)
 
 	camera->update(window);
 
-
-	basicShader->use();
-	test->draw(basicShader);
+	activeShader = shaderMgr->getShader("Cubefield"); 
+	test->draw(activeShader);
 	
-	glm::mat4 MV = camera->viewMatrix * plane->modelMatrix;
-	glm::mat4 MVP = camera->projMatrix * MV;
-	planeShader->use();
-	planeShader->update1i(2, "tex");
-	planeShader->updateMat4("MV", 1, glm::value_ptr(MV));
-	planeShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
-	plane->draw();
+	activeShader = shaderMgr->getShader("Plane");
+	plane->draw(activeShader);
 
-	MV = camera->viewMatrix * camera->modelMatrix;
-	MVP = camera->projMatrix * MV;
-	camShader->use();
-	camShader->updateMat4("MV", 1, glm::value_ptr(MV));
-	camShader->updateMat4("MVP", 1, glm::value_ptr(MVP));
-	camera->draw();
+	activeShader = shaderMgr->getShader("Camera");
+	camera->draw(activeShader);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDisable(GL_DEPTH_TEST);
 
-	panelShader->use();
-	panelShader->updateMat4("M", 1, glm::value_ptr(panel->modelMatrix));
-	panel->draw();
+	activeShader = shaderMgr->getShader("Panel");
+	panel->draw(activeShader);
 }

@@ -83,32 +83,11 @@
     <ClCompile Include="meshv2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="shader_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\cam.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\cam.geom">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\cam.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\panel.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\panel.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\plane.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\skybox.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\skybox.vert">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="textures\i_bk.tga">
       <Filter>textures</Filter>
     </None>
@@ -127,10 +106,34 @@
     <None Include="textures\i_up.tga">
       <Filter>textures</Filter>
     </None>
-    <None Include="shader\default.frag">
+    <None Include="shader\cam.fs">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cubefield.vert">
+    <None Include="shader\cam.gs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\cam.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\cubefield.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\default.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\panel.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\panel.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\plane.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\skybox.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\skybox.vs">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

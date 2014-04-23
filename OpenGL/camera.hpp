@@ -11,6 +11,8 @@
 
 using std::vector;
 
+#include "shader.hpp"
+
 class Camera
 {
 public:
@@ -19,7 +21,7 @@ public:
 
 	void update(GLFWwindow *window);
 
-	void draw();
+	void draw(Shader* shader);
 
 	static bool viewChanged;
 	static bool mouseClicked;

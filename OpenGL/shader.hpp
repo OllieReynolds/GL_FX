@@ -22,6 +22,22 @@ enum ShaderTypes
 	GEOM,
 };
 
+struct shaderDir {
+	shaderDir() 
+		:	vertex(NULL)
+		,	fragment(NULL)
+		,	tessControl(NULL)
+		,	tessEval(NULL)
+		,	geometry(NULL)
+	{ }
+
+	const char* vertex;
+	const char* fragment;
+	const char* tessControl;
+	const char* tessEval;
+	const char* geometry;
+};
+
 class Shader
 {
 public:
@@ -41,6 +57,8 @@ public:
 
 	void create(string vsDir, string fsDir, const char* tcsDir, 
 		const char* tesDir, const char* gsDir);
+
+	int create(const shaderDir& dir);
 
 	void use();
 

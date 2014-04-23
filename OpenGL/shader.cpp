@@ -36,6 +36,48 @@ void Shader::create(string vsDir, string fsDir, const char* tcsDir,
 	}
 }
 
+int Shader::create(const shaderDir& dir)
+{
+	if (!dir.vertex && !dir.fragment)
+		return -1;
+
+	shaders[0] = createShader(dir.vertex, GL_VERTEX_SHADER);
+	shaders[1] = createShader(dir.fragment, GL_FRAGMENT_SHADER);
+
+	if (dir.tessControl) 
+		shaders[2] = createShader(dir.tessControl, GL_TESS_CONTROL_SHADER);
+
+	if (dir.tessEval) 
+		shaders[3] = createShader(dir.tessEval, GL_TESS_EVALUATION_SHADER);
+
+	if (dir.geometry)
+		shaders[4] = createShader(dir.geometry, GL_GEOMETRY_SHADER);
+
+	for (GLuint s : shaders)
+		glAttachShader(program, s);
+	
+	glLinkProgram(program);
+	GLint isLinked = 0;
+	glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
+	if (isLinked == GL_FALSE)
+	{
+		GLint maxLength = 0;
+		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
+ 
+		std::vector<GLchar> infoLog(maxLength);
+		glGetProgramInfoLog(program, maxLength, &maxLength, &infoLog[0]);
+ 
+		glDeleteProgram(program);
+		for (int i = 0; i < infoLog.size(); i++) {
+			cout << infoLog.at(i);
+		}
+
+		return -1;
+	}
+
+	return 0;
+}
+
 GLuint Shader::createShader(string dir, GLenum type) {
 	string s = loadFile(dir);
 	const char* src = s.c_str();
@@ -49,11 +91,6 @@ void Shader::use() {
 	glUseProgram(program);
 }
 
-//void Shader::updateMat4(glm::mat4 m, const GLchar* name) {
-//	GLint loc = glGetUniformLocation(program, name);
-//	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(m));
-//}
-
 void Shader::updateMat4(const GLchar* name, GLsizei n, const GLfloat* value) {
 	GLint loc = glGetUniformLocation(program, name);
 	glUniformMatrix4fv(loc, n, GL_FALSE, value);
@@ -63,7 +100,6 @@ void Shader::update1i(int i, const GLchar* name) {
 	GLint loc = glGetUniformLocation(program, name);
 	glUniform1i(loc, i);
 }
-
 
 void Shader::update1f(float d, const GLchar* name) {
 	GLint loc = glGetUniformLocation(program, name);
