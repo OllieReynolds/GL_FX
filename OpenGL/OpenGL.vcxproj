@@ -21,18 +21,23 @@
   <ItemGroup>
     <ClInclude Include="audioplayer.hpp" />
     <ClInclude Include="camera.hpp" />
+    <ClInclude Include="drawable.hpp" />
     <ClInclude Include="mesh.hpp" />
+    <ClInclude Include="meshv2.hpp" />
     <ClInclude Include="panel.hpp" />
     <ClInclude Include="plane.hpp" />
     <ClInclude Include="scene.hpp" />
     <ClInclude Include="shader.hpp" />
+    <ClInclude Include="shader_manager.hpp" />
     <ClInclude Include="skybox.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="audioplayer.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="drawable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="meshv2.cpp" />
     <ClCompile Include="panel.cpp" />
     <ClCompile Include="plane.cpp" />
     <ClCompile Include="scene.cpp" />

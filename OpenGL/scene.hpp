@@ -2,12 +2,13 @@
 #define SCENE_HPP
 
 #include "camera.hpp"
-#include "mesh.hpp"
+//#include "mesh.hpp"
 #include "shader.hpp"
 #include "skybox.h"
 #include "panel.hpp"
 #include "plane.hpp"
 #include "audioplayer.hpp"
+#include "meshv2.hpp"
 
 class Scene
 {
@@ -24,8 +25,9 @@ public:
 private:
 	Camera*	camera;
 
+	meshv2* test;
 
-	Mesh*	mesh;
+	//Mesh*	mesh;
 	Plane*	plane;
 
 	Skybox* skybox;
