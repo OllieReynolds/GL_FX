@@ -6,6 +6,8 @@ bool Camera::viewChanged = true;
 bool Camera::mouseClicked = false;
 
 glm::vec2 Camera::deltaView = glm::vec2(0.f);
+glm::mat4 Camera::viewMatrix = glm::mat4(0.f);
+glm::mat4 Camera::projMatrix = glm::mat4(0.f);
 
 Camera::Camera(const glm::vec3& position, const glm::vec3& target, 
 	float fieldOfView, float aspectRatio, float mouseSpeed) 
@@ -18,8 +20,9 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 		up(glm::vec3(0.f, 1.f, 0.f)),
 		angle(glm::vec2(3.14f, 0.f)) 
 { 
-	viewMatrix = glm::lookAt(position, target, up);
-	projMatrix = glm::infinitePerspective(FOV, aspectRatio, nearClipping);
+	//viewMatrix = glm::lookAt(position, target, up);
+//	projMatrix = glm::perspective(FOV, aspectRatio, nearClipping, 100.f);
+	//projMatrix = glm::infinitePerspective(FOV, aspectRatio, nearClipping);
 
 	positions = vector<float>();
 
@@ -40,6 +43,11 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 600, &positions[0], GL_STREAM_DRAW); 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
+}
+
+void Camera::initMatrices() {
+	viewMatrix = glm::lookAt(position, target, up);
+	projMatrix = glm::infinitePerspective(FOV, aspectRatio, nearClipping);
 }
 
 void Camera::update(GLFWwindow *window)

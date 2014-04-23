@@ -27,11 +27,12 @@ public:
 	static glm::vec2 deltaPos;
 	static glm::vec2 deltaView;
 
-	glm::mat4 viewMatrix;
-	glm::mat4 projMatrix;
+	static glm::mat4 viewMatrix;
+	static glm::mat4 projMatrix;
 	glm::mat4 modelMatrix;
 
 	glm::mat4 getSkyboxViewMatrix();
+	void initMatrices();
 
 private:
 	static const float moveSpeed;
