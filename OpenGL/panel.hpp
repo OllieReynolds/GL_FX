@@ -1,13 +1,14 @@
 #ifndef PANEL_HPP
 #define PANEL_HPP
 
-#include <glew.h>
-#include <SOIL.h>
 #include <iostream>
-#include <glm.hpp>
-#include <gtc/quaternion.hpp>
-#include <gtx/quaternion.hpp>
-#include <gtc/matrix_transform.hpp> 
+
+#include "include\GLEW_64-1.10.0\glew.h"
+#include "include\SOIL\SOIL.h"
+#include "include\GLM-0.9.4.4\glm.hpp"
+#include "include\GLM-0.9.4.4\gtc\quaternion.hpp"
+#include "include\GLM-0.9.4.4\gtx\quaternion.hpp"
+#include "include\GLM-0.9.4.4\gtc\matrix_transform.hpp"
 
 #include "shader.hpp"
 

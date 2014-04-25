@@ -1,10 +1,11 @@
 #ifndef SHADER_HPP
 #define SHADER_HPP
 
-#include <glew.h>
-#include <glfw3.h>
-#include <gtc/matrix_transform.hpp> 
-#include <gtc/type_ptr.hpp>
+#include "include\GLEW_64-1.10.0\glew.h"
+#include "include\GLFW_64-3.0.1\glfw3.h"
+#include "include\GLM-0.9.4.4\gtc\matrix_transform.hpp" 
+#include "include\GLM-0.9.4.4\gtc\type_ptr.hpp"
+
 #include <vector>
 #include <windows.h>
 #include <fstream>

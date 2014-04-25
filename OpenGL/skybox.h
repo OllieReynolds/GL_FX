@@ -1,8 +1,9 @@
 #ifndef SKYBOX_H
 #define SKYBOX_H
 
-#include <glew.h>
-#include <SOIL.h>
+#include "include\GLEW_64-1.10.0\glew.h"
+#include "include\SOIL\SOIL.h"
+
 #include <Windows.h>
 
 #define FRONT	"textures/i_ft.tga"

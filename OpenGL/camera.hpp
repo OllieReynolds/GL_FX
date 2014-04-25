@@ -1,15 +1,15 @@
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 
-#include <glew.h>
-#include <glfw3.h>
-#include <glm.hpp>
-#include <gtc/quaternion.hpp>
-#include <gtx/quaternion.hpp>
-#include <gtc/matrix_transform.hpp> 
-#include <vector>
+#include "include\GLEW_64-1.10.0\glew.h"
+#include "include\GLFW_64-3.0.1\glfw3.h"
+#include "include\GLM-0.9.4.4\glm.hpp"
+#include "include\GLM-0.9.4.4\gtc\quaternion.hpp"
+#include "include\GLM-0.9.4.4\gtx\quaternion.hpp"
+#include "include\GLM-0.9.4.4\gtc\matrix_transform.hpp"
 
-using std::vector;
+
+#include <vector>
 
 #include "shader.hpp"
 
@@ -39,7 +39,6 @@ public:
 private:
 	static const float moveSpeed;
 
-
 	void recomputeView();
 
 	glm::fquat lerp(const glm::fquat& v0, const glm::fquat& v1, float angle);
@@ -59,7 +58,7 @@ private:
 
 	glm::vec3 right;
 
-	vector<float> positions;
+	std::vector<float> positions;
 
 
 	GLuint vao, vbo;

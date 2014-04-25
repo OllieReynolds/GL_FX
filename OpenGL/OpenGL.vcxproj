@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -75,26 +75,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <CLRSupport>false</CLRSupport>
@@ -128,7 +128,7 @@
     <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_32-1.9.0;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLM-0.9.4.3;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLEW_32-1.9.0;$(IncludePath)</IncludePath>
+    <IncludePath>\include\;$(IncludePath)</IncludePath>
     <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_32-1.9.0;$(ExecutablePath)</ExecutablePath>
     <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_32-1.9.0;$(LibraryPath)</LibraryPath>
     <SourcePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\src;$(SourcePath)</SourcePath>

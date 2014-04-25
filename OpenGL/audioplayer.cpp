@@ -1,5 +1,4 @@
 #include "audioplayer.hpp"
-#include <iostream>
 
 glm::mat4 AudioPlayer::scaleMatrix;
 

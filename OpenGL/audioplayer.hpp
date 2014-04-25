@@ -3,11 +3,12 @@
 
 #include <algorithm>
 #include <Windows.h>
-#include <fmod.hpp>
-#include <glm.hpp>
-#include <gtc/quaternion.hpp>
-#include <gtx/quaternion.hpp>
-#include <gtc/matrix_transform.hpp> 
+
+#include "include\FMOD_64-4.44.23\fmod.hpp"
+#include "include\GLM-0.9.4.4\glm.hpp"
+#include "include\GLM-0.9.4.4\gtc\quaternion.hpp"
+#include "include\GLM-0.9.4.4\gtx\quaternion.hpp"
+#include "include\GLM-0.9.4.4\gtc\matrix_transform.hpp"
 
 class AudioPlayer
 {

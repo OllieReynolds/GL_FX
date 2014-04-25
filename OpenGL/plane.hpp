@@ -1,9 +1,9 @@
 #ifndef PLANE_HPP
 #define PLANE_HPP
 
-#include <glew.h>
-#include <glm.hpp>
-#include <SOIL.h>
+#include "include\GLEW_64-1.10.0\glew.h"
+#include "include\GLM-0.9.4.4\glm.hpp"
+#include "include\SOIL\SOIL.h"
 
 #include "shader.hpp"
 #include "camera.hpp"
