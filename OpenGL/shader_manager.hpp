@@ -16,6 +16,7 @@ public:
 	Shader* getShader(const std::string& name);
 
 private:
+	// Hash the shader name to program
 	std::unordered_map<std::string, Shader*> shaderTable;
 };
 
