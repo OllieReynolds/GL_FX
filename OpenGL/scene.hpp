@@ -36,12 +36,6 @@ private:
 
 	Shader* activeShader;
 
-	//Shader*	basicShader;
-	//Shader* skyboxShader;
-	//Shader* panelShader;
-	//Shader* planeShader;
-	//Shader* camShader;
-
 	ShaderManager* shaderMgr;
 	
 };

@@ -129,14 +129,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>\include\;$(IncludePath)</IncludePath>
-    <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_32-1.9.0;$(ExecutablePath)</ExecutablePath>
-    <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\FMOD_32-4.44.14;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_32-2.7.8;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_32-1.9.0;$(LibraryPath)</LibraryPath>
-    <SourcePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\src;$(SourcePath)</SourcePath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Users\Ollie\Source\Repos\OpenGL-Project\OpenGL\lib;lib\;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\SOIL;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLFW_64-3.0.1;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLM-0.9.4.4;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\GLEW_64-1.10.0;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\include\FMOD_64-4.44.23;$(IncludePath)</IncludePath>
-    <ExecutablePath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\FMOD_64-4.44.23;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLFW_64-3.0.1;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\bin\GLEW_64-1.10.0;$(ExecutablePath)</ExecutablePath>
-    <LibraryPath>C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\SOIL;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLFW_64-3.0.1;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\FMOD_64-4.44.23;C:\Users\MrG\Documents\Visual Studio 2012\Projects\OpenGL\OpenGL\lib\GLEW_64-1.10.0;$(LibraryPath)</LibraryPath>
+    <IncludePath>\include\SOIL;\include\GLM-0.9.4.4;\include\GLFW_64-3.0.1;\include\GLEW_64-1.10.0;\include\FMOD_64-4.44.23;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Users\Ollie\Source\Repos\OpenGL-Project\OpenGL\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SourcePath)</SourcePath>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -171,7 +171,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>false</ExceptionHandling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
@@ -180,8 +180,9 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>glew32s.lib;glu32.lib;opengl32.lib;glfw.lib;fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glu32.lib;opengl32.lib;glfw3.lib;fmodex64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalLibraryDirectories>\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -191,7 +192,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>false</ExceptionHandling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -207,7 +208,7 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>glew32.lib;glu32.lib;opengl32.lib;glfw3.lib;fmodex64_vc.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glu32.lib;opengl32.lib;glfw3.lib;fmodex64_vc.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <ShowProgress>NotSet</ShowProgress>
       <TargetMachine>MachineX64</TargetMachine>
