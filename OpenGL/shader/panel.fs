@@ -14,22 +14,26 @@ vec4 glow(vec2 p, vec3 c, float pow) {
 }
 
 void main() {
-	vec2 p = (gl_FragCoord.xy - 0.5 * vec2(640, 480)) / min(640, 480);
-	vec4 c = glow(p, vec3(0.4, 0.4, 0.8), 0.02) * texture(tex, UV);
+//	vec2 p = (gl_FragCoord.xy - 0.5 * vec2(640, 480)) / min(640, 480);
+//	vec4 c = glow(p, vec3(0.4, 0.4, 0.8), 0.02) * texture(tex, UV);
 
 	//outColor = mix(texture(tex, UV), fog_colour, fog_fac);
 
-	vec4 glowC = vec4(0.0);
+//	vec4 glowC = vec4(0.0);
 
-	for (float i = 0; i < 1; i+=0.1) {
-		glowC += glow((gl_FragCoord.xy - i * vec2(640, 480)) / min(640, 480), vec3(0.2+i, 0.8-i, 0.0), 0.05);
-	}
+//	for (float i = 0; i < 1; i+=0.1) {
+//		glowC += glow((gl_FragCoord.xy - i * vec2(640, 480)) / min(640, 480), vec3(0.2+i, 0.8-i, 0.0), 0.05);
+//	}
 
 	//vec4 fin = mix(texture(tex, UV), fog_colour, fog_fac);
 
 	//outColor = smoothstep(0., 0.4, fin);
 
-	outColor = mix(texture(tex, UV), fog_colour, fog_fac);
+    float dx = 4.0 * (1./640.);
+    float dy = 3.0 * (1./480.);
+    vec2 coord = vec2(dx * floor(UV.x / dx), dy * floor(UV.y / dy));
+
+	outColor = mix(texture(tex, coord), fog_colour, fog_fac);
 	//outColor = mix(texture(tex, UV), fog_colour, fog_fac) * glowC * vec4(step(1.0, mod(gl_FragCoord.x, 2.0)));
 }
 
