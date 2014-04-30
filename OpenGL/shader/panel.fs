@@ -29,11 +29,15 @@ void main() {
 
 	//outColor = smoothstep(0., 0.4, fin);
 
-    float dx = 4.0 * (1./640.);
-    float dy = 3.0 * (1./480.);
+    float dx = 8.0 * (1./640.);
+    float dy = 6.0 * (1./480.);
     vec2 coord = vec2(dx * floor(UV.x / dx), dy * floor(UV.y / dy));
 
-	outColor = mix(texture(tex, coord), fog_colour, fog_fac);
+    vec4 c =  mix(texture(tex, coord), fog_colour, fog_fac);
+
+    float gray = dot(c.rgb, vec3(0.299, 0.587, 0.114));
+
+	outColor = vec4(gray);
 	//outColor = mix(texture(tex, UV), fog_colour, fog_fac) * glowC * vec4(step(1.0, mod(gl_FragCoord.x, 2.0)));
 }
 
