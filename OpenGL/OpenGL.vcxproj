@@ -21,8 +21,8 @@
   <ItemGroup>
     <ClInclude Include="audioplayer.hpp" />
     <ClInclude Include="camera.hpp" />
+    <ClInclude Include="constants.hpp" />
     <ClInclude Include="drawable.hpp" />
-    <ClInclude Include="mesh.hpp" />
     <ClInclude Include="meshv2.hpp" />
     <ClInclude Include="panel.hpp" />
     <ClInclude Include="plane.hpp" />
@@ -36,7 +36,6 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="drawable.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mesh.cpp" />
     <ClCompile Include="meshv2.cpp" />
     <ClCompile Include="panel.cpp" />
     <ClCompile Include="plane.cpp" />
@@ -46,16 +45,16 @@
     <ClCompile Include="skybox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\default.fs" />
-    <None Include="shader\cubefield.vs" />
-    <None Include="shader\cam.fs" />
-    <None Include="shader\cam.gs" />
-    <None Include="shader\cam.vs" />
-    <None Include="shader\panel.fs" />
-    <None Include="shader\panel.vs" />
-    <None Include="shader\plane.vs" />
-    <None Include="shader\skybox.fs" />
-    <None Include="shader\skybox.vs" />
+    <None Include="shader\cubefield_fs.glsl" />
+    <None Include="shader\cubefield_vs.glsl" />
+    <None Include="shader\cam_fs.glsl" />
+    <None Include="shader\cam_vs.glsl" />
+    <None Include="shader\panel_fs.glsl" />
+    <None Include="shader\panel_vs.glsl" />
+    <None Include="shader\plane_fs.glsl" />
+    <None Include="shader\plane_vs.glsl" />
+    <None Include="shader\skybox_fs.glsl" />
+    <None Include="shader\skybox_vs.glsl" />
     <None Include="textures\i_bk.tga" />
     <None Include="textures\i_dn.tga" />
     <None Include="textures\i_ft.tga" />

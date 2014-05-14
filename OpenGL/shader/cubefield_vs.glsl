@@ -15,7 +15,7 @@ float rand(vec2 co){
 	return fract(sin(dot(co.xy, vec2(12.9898,78.233))) * 43758.5453);
 }
 
-vec3 instanceToVec(int id) {
+vec3 cubePoint(int id) {
 	int a = int(pow(INSTANCE_COUNT, .3));
 	int b = int(INSTANCE_COUNT / a);
 
@@ -27,7 +27,7 @@ vec3 instanceToVec(int id) {
 }
 
 void main() {
-	vec4 v = vec4(instanceToVec(gl_InstanceID), 1.0);
+	vec4 v = vec4(cubePoint(gl_InstanceID), 1.0);
 	gl_Position = MVP * (inPosition + v);
 
 	exColor = inColor;

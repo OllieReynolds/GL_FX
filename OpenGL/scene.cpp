@@ -9,7 +9,7 @@ Scene::Scene()
 		glm::vec3(0.0, 0.0, 0.0),	// Position
 		glm::vec3(0.0, 0.0, -4.0),	// Target
 		90.f,	// FOV
-		1.3333f, // Aspect ratio
+		ASPECT, // Aspect ratio
 		0.002f	// mouse speed
 	);
 	camera->initMatrices();
@@ -36,12 +36,6 @@ Scene::~Scene() {
 
 void Scene::draw(GLFWwindow *window)
 {
-	if (recompileShaders) {
-		// Implement shader program recompilation here
-		// Refactor to function when working
-		recompileShaders = false;
-	}
-
 	glBindFramebuffer(GL_FRAMEBUFFER, panel->fbo);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);

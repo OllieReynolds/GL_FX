@@ -107,6 +107,7 @@ void Plane::draw(Shader* shader) {
 	glm::mat4 MVP = Camera::projMatrix * MV;
 
 	shader->update1i(2, "tex");
+	shader->update2f(WIDTH, HEIGHT, "res");
 	shader->updateMat4("MV", 1, glm::value_ptr(MV));
 	shader->updateMat4("MVP", 1, glm::value_ptr(MVP));
 

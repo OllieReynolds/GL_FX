@@ -1,41 +1,5 @@
 #include "shader.hpp"
 
-void Shader::create(string vsDir, string fsDir, const char* tcsDir, 
-		const char* tesDir, const char* gsDir)
-{
-	shaders[VERT] = createShader(vsDir, GL_VERTEX_SHADER);
-	shaders[FRAG] = createShader(fsDir, GL_FRAGMENT_SHADER);
-
-	if (tcsDir) 
-		shaders[TESC] = createShader(tcsDir, GL_TESS_CONTROL_SHADER);
-
-	if (tesDir) 
-		shaders[TESE] = createShader(tesDir, GL_TESS_EVALUATION_SHADER);
-
-	if (gsDir)
-		shaders[GEOM] = createShader(gsDir, GL_GEOMETRY_SHADER);
-
-	for (GLuint s : shaders)
-		glAttachShader(program, s);
-	
-	glLinkProgram(program);
-	GLint isLinked = 0;
-	glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
-	if (isLinked == GL_FALSE)
-	{
-		GLint maxLength = 0;
-		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
- 
-		std::vector<GLchar> infoLog(maxLength);
-		glGetProgramInfoLog(program, maxLength, &maxLength, &infoLog[0]);
- 
-		glDeleteProgram(program);
-		for (int i = 0; i < infoLog.size(); i++) {
-			cout << infoLog.at(i);
-		}
-	}
-}
-
 int Shader::create(const shaderDir& dir)
 {
 	if (!dir.vertex && !dir.fragment)
@@ -78,8 +42,8 @@ int Shader::create(const shaderDir& dir)
 	return 0;
 }
 
-GLuint Shader::createShader(string dir, GLenum type) {
-	string s = loadFile(dir);
+GLuint Shader::createShader(const char* dir, GLenum type) {
+	string s = loadFile(string(dir));
 	const char* src = s.c_str();
 	GLuint obj = glCreateShader(type);
 	glShaderSource(obj, 1, &src, NULL);
@@ -106,12 +70,19 @@ void Shader::update1f(float d, const GLchar* name) {
 	glUniform1f(loc, d);
 }
 
-string Shader::loadFile(const string& directory)
-{
+void Shader::update2f(float x, float y, const GLchar* name) {
+	GLint loc = glGetUniformLocation(program, name);
+	glUniform2f(loc, x, y);
+
+}
+
+string Shader::loadFile(const string& directory) {
 	ifstream ifs(directory);
 
-	if (ifs.fail())
+	if (ifs.fail()) {
+		cout << directory << endl;
 		MessageBox(NULL, L"Failed to load shader", NULL, NULL);
+	}
 
 	string content(	(istreambuf_iterator<char>(ifs)	),
 					(istreambuf_iterator<char>()	) );

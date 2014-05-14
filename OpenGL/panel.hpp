@@ -10,6 +10,7 @@
 #include "include\GLM-0.9.4.4\gtx\quaternion.hpp"
 #include "include\GLM-0.9.4.4\gtc\matrix_transform.hpp"
 
+#include "constants.hpp"
 #include "shader.hpp"
 
 class Panel {

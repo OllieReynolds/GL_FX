@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mesh.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="camera.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,12 +45,12 @@
     <ClInclude Include="shader_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="constants.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
@@ -106,34 +103,34 @@
     <None Include="textures\i_up.tga">
       <Filter>textures</Filter>
     </None>
-    <None Include="shader\cam.fs">
+    <None Include="shader\cam_fs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cam.gs">
+    <None Include="shader\cam_vs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cam.vs">
+    <None Include="shader\cubefield_vs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cubefield.vs">
+    <None Include="shader\panel_fs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\default.fs">
+    <None Include="shader\panel_vs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\panel.fs">
+    <None Include="shader\plane_vs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\panel.vs">
+    <None Include="shader\skybox_fs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\plane.vs">
+    <None Include="shader\skybox_vs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\skybox.fs">
+    <None Include="shader\cubefield_fs.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\skybox.vs">
+    <None Include="shader\plane_fs.glsl">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

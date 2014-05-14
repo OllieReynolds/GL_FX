@@ -22,14 +22,14 @@ Panel::Panel() {
 	glGenTextures(1, &texture_data);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, texture_data);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 640, 480, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, WIDTH, HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
 	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glGenRenderbuffers(1, &rbo);
 	glBindRenderbuffer(GL_RENDERBUFFER, rbo);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, 640, 480);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, WIDTH, HEIGHT);
 	glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
 	glGenFramebuffers(1, &fbo);
@@ -64,6 +64,7 @@ Panel::~Panel() {
 
 void Panel::draw(Shader* shader) {
 	shader->updateMat4("M", 1, glm::value_ptr(modelMatrix));
+	shader->update2f(WIDTH, HEIGHT, "res");
 
 	glBindVertexArray(vao);
 	glBindTexture(GL_TEXTURE_2D, texture_data);

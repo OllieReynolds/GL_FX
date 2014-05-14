@@ -20,6 +20,5 @@ void main() {
 	float fog_f = (dist - min_fog_radius) / (max_fog_radius - min_fog_radius);
 	fog_fac = clamp(fog_f, 0.0, 1.0);
 
-
 	UV = st;
 }

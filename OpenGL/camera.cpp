@@ -16,7 +16,7 @@ Camera::Camera(const glm::vec3& position, const glm::vec3& target,
 		FOV(fieldOfView), 
 		aspectRatio(aspectRatio), 
 		mouseSpeed(mouseSpeed),
-		nearClipping(1.f),
+		nearClipping(0.1f),
 		up(glm::vec3(0.f, 1.f, 0.f)),
 		angle(glm::vec2(3.14f, 0.f)) 
 { 
@@ -48,7 +48,7 @@ void Camera::initMatrices() {
 
 void Camera::update(GLFWwindow *window)
 {
-	if (viewChanged && glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+	if (viewChanged) ////glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
 		recomputeView();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)

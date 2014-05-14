@@ -1,31 +1,25 @@
 #include "scene.hpp"
 
+#include "constants.hpp"
 #include "audioplayer.hpp"
 
 static GLFWwindow* window;
 
 static void cursorPosCallback(GLFWwindow* window, double xPos, double yPos);
 static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-static void onClick(GLFWwindow* window, int button, int action, int mods);
+//static void onClick(GLFWwindow* window, int button, int action, int mods);
 
 static glm::vec2 size;
 static glm::vec2 center;
-
-static const int SAMPLES	=   2;
-static const int MAJOR		=   4;
-static const int MINOR		=	4;
-static const int WIDTH		= 640;
-static const int HEIGHT		= 480;
-
 
 int main()
 {
 	glfwInit();
 	glfwWindowHint(GLFW_DEPTH_BITS, 24);
-	glfwWindowHint( GLFW_SAMPLES, SAMPLES );
-	glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
-	glfwWindowHint( GLFW_VERSION_MAJOR, MAJOR );
-	glfwWindowHint( GLFW_VERSION_MINOR, MINOR );
+	glfwWindowHint(GLFW_SAMPLES, SAMPLES);
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+	glfwWindowHint(GLFW_VERSION_MAJOR, VER_MAJOR);
+	glfwWindowHint(GLFW_VERSION_MINOR, VER_MINOR);
 
 	window = glfwCreateWindow(WIDTH, HEIGHT, "Demo", NULL, NULL);
 
@@ -33,7 +27,7 @@ int main()
 
 	glfwSetKeyCallback(window, keyCallback);
 	glfwSetCursorPosCallback(window, cursorPosCallback);
-	glfwSetMouseButtonCallback(window, onClick);
+	//glfwSetMouseButtonCallback(window, onClick);
 
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
@@ -51,7 +45,7 @@ int main()
 	Scene* scene = new Scene();
 
 	AudioPlayer* player = new AudioPlayer();
-	player->loadTrack("http://88.80.10.21:8086/bitjam.mp3");
+	player->loadTrack(NECTARINE.c_str());
 
 	while (!glfwWindowShouldClose(window)) {
 		player->updatePlayback();
@@ -83,10 +77,4 @@ void cursorPosCallback(GLFWwindow* window, double xPos, double yPos)
 
 	Camera::viewChanged = true;
 	Camera::deltaView	= glm::vec2(center.x - xPos, center.y - yPos);
-}
-
-void onClick(GLFWwindow* window, int button, int action, int mods) {
-	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-		Camera::mouseClicked = true;
-	}
 }

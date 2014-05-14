@@ -5,8 +5,9 @@
 #include "include\GLM-0.9.4.4\glm.hpp"
 #include "include\SOIL\SOIL.h"
 
-#include "shader.hpp"
 #include "camera.hpp"
+#include "constants.hpp"
+#include "shader.hpp"
 
 class Plane {
 public:

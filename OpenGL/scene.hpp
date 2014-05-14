@@ -27,7 +27,6 @@ private:
 
 	meshv2* test;
 
-	//Mesh*	mesh;
 	Plane*	plane;
 
 	Skybox* skybox;

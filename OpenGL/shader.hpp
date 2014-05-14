@@ -32,11 +32,11 @@ struct shaderDir {
 		,	geometry(NULL)
 	{ }
 
-	const char* vertex;
-	const char* fragment;
-	const char* tessControl;
-	const char* tessEval;
-	const char* geometry;
+	char* vertex;
+	char* fragment;
+	char* tessControl;
+	char* tessEval;
+	char* geometry;
 };
 
 class Shader
@@ -56,20 +56,16 @@ public:
 		glDeleteProgram(program);
 	}
 
-	void create(string vsDir, string fsDir, const char* tcsDir, 
-		const char* tesDir, const char* gsDir);
-
 	int create(const shaderDir& dir);
-
 	void use();
 
-	//void updateMat4(glm::mat4 m, const GLchar* name);
 	void updateMat4(const GLchar* name, GLsizei n, const GLfloat* value);
 	void update1i(int i, const GLchar* name);
 	void update1f(float d, const GLchar* name);
+	void update2f(float x, float y, const GLchar* name);
 
 private:
-	GLuint createShader(string dir, GLenum type);
+	GLuint createShader(const char* dir, GLenum type);
 	string loadFile(const string& directory);
 
 	GLuint program; 

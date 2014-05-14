@@ -2,24 +2,24 @@
 
 ShaderManager::ShaderManager() {
 	shaderDir dir;
-	dir.vertex = "shader/cubefield.vs";
-	dir.fragment = "shader/default.fs";
+	dir.vertex = "shader/cubefield_vs.glsl";
+	dir.fragment = "shader/cubefield_fs.glsl";
 	registerShader("Cubefield", dir);
 	
-	dir.vertex = "shader/skybox.vs";
-	dir.fragment = "shader/skybox.fs";
+	dir.vertex = "shader/skybox_vs.glsl";
+	dir.fragment = "shader/skybox_fs.glsl";
 	registerShader("Skybox", dir);
 
-	dir.vertex = "shader/panel.vs";
-	dir.fragment = "shader/panel.fs";
+	dir.vertex = "shader/panel_vs.glsl";
+	dir.fragment = "shader/panel_fs.glsl";
 	registerShader("Panel", dir);
 
-	dir.vertex = "shader/plane.vs";
-	dir.fragment = "shader/panel.fs";
+	dir.vertex = "shader/plane_vs.glsl";
+	dir.fragment = "shader/plane_fs.glsl";
 	registerShader("Plane", dir);
 
-	dir.vertex = "shader/cam.vs";
-	dir.fragment = "shader/cam.fs";
+	dir.vertex = "shader/cam_vs.glsl";
+	dir.fragment = "shader/cam_fs.glsl";
 	registerShader("Camera", dir);
 }
 
