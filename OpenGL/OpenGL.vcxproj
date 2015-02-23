@@ -55,16 +55,6 @@
     <None Include="shader\plane_vs.glsl" />
     <None Include="shader\skybox_fs.glsl" />
     <None Include="shader\skybox_vs.glsl" />
-    <None Include="textures\i_bk.tga" />
-    <None Include="textures\i_dn.tga" />
-    <None Include="textures\i_ft.tga" />
-    <None Include="textures\i_lf.tga" />
-    <None Include="textures\i_rt.tga" />
-    <None Include="textures\i_up.tga" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\img.png" />
-    <Image Include="textures\panel.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9DE2A54E-65A9-45E8-98D6-DD0A3EDDCE7D}</ProjectGuid>

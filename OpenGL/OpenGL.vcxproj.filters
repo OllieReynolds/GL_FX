@@ -7,9 +7,6 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{029a065e-a072-4867-a7db-b9cca2012ddb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="textures">
-      <UniqueIdentifier>{5cd3feb4-0d22-4fb4-a5dd-2a7998d0840a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="shaders">
       <UniqueIdentifier>{8ddc58a1-33f4-47ff-a618-1e5adf3113eb}</UniqueIdentifier>
     </Filter>
@@ -85,24 +82,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="textures\i_bk.tga">
-      <Filter>textures</Filter>
-    </None>
-    <None Include="textures\i_dn.tga">
-      <Filter>textures</Filter>
-    </None>
-    <None Include="textures\i_ft.tga">
-      <Filter>textures</Filter>
-    </None>
-    <None Include="textures\i_lf.tga">
-      <Filter>textures</Filter>
-    </None>
-    <None Include="textures\i_rt.tga">
-      <Filter>textures</Filter>
-    </None>
-    <None Include="textures\i_up.tga">
-      <Filter>textures</Filter>
-    </None>
     <None Include="shader\cam_fs.glsl">
       <Filter>shaders</Filter>
     </None>
@@ -133,13 +112,5 @@
     <None Include="shader\plane_fs.glsl">
       <Filter>shaders</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\img.png">
-      <Filter>textures</Filter>
-    </Image>
-    <Image Include="textures\panel.png">
-      <Filter>textures</Filter>
-    </Image>
   </ItemGroup>
 </Project>
