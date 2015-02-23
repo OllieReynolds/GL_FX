@@ -45,26 +45,16 @@
     <ClCompile Include="skybox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\cubefield_fs.glsl" />
-    <None Include="shader\cubefield_vs.glsl" />
-    <None Include="shader\cam_fs.glsl" />
-    <None Include="shader\cam_vs.glsl" />
-    <None Include="shader\panel_fs.glsl" />
-    <None Include="shader\panel_vs.glsl" />
-    <None Include="shader\plane_fs.glsl" />
-    <None Include="shader\plane_vs.glsl" />
-    <None Include="shader\skybox_fs.glsl" />
-    <None Include="shader\skybox_vs.glsl" />
-    <None Include="textures\i_bk.tga" />
-    <None Include="textures\i_dn.tga" />
-    <None Include="textures\i_ft.tga" />
-    <None Include="textures\i_lf.tga" />
-    <None Include="textures\i_rt.tga" />
-    <None Include="textures\i_up.tga" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\img.png" />
-    <Image Include="textures\panel.png" />
+    <None Include="shader\cubefield.frag" />
+    <None Include="shader\cubefield.vert" />
+    <None Include="shader\cam.frag" />
+    <None Include="shader\cam.vert" />
+    <None Include="shader\panel.frag" />
+    <None Include="shader\panel.vert" />
+    <None Include="shader\plane.frag" />
+    <None Include="shader\plane.vert" />
+    <None Include="shader\skybox.frag" />
+    <None Include="shader\skybox.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9DE2A54E-65A9-45E8-98D6-DD0A3EDDCE7D}</ProjectGuid>
