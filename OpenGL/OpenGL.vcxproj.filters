@@ -82,34 +82,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\cam_fs.glsl">
+    <None Include="shader\cam.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cam_vs.glsl">
+    <None Include="shader\cam.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cubefield_vs.glsl">
+    <None Include="shader\cubefield.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\panel_fs.glsl">
+    <None Include="shader\cubefield.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\panel_vs.glsl">
+    <None Include="shader\panel.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\plane_vs.glsl">
+    <None Include="shader\panel.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\skybox_fs.glsl">
+    <None Include="shader\plane.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\skybox_vs.glsl">
+    <None Include="shader\plane.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\cubefield_fs.glsl">
+    <None Include="shader\skybox.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\plane_fs.glsl">
+    <None Include="shader\skybox.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
