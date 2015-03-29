@@ -1,13 +1,11 @@
 #include "scene.hpp"
 
 #include "constants.hpp"
-#include "audioplayer.hpp"
 
 static GLFWwindow* window;
 
 static void cursorPosCallback(GLFWwindow* window, double xPos, double yPos);
 static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-//static void onClick(GLFWwindow* window, int button, int action, int mods);
 
 static glm::vec2 size;
 static glm::vec2 center;
@@ -27,7 +25,6 @@ int main()
 
 	glfwSetKeyCallback(window, keyCallback);
 	glfwSetCursorPosCallback(window, cursorPosCallback);
-	//glfwSetMouseButtonCallback(window, onClick);
 
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
@@ -44,17 +41,12 @@ int main()
 
 	Scene* scene = new Scene();
 
-	AudioPlayer* player = new AudioPlayer();
-	player->loadTrack(NECTARINE.c_str());
-
 	while (!glfwWindowShouldClose(window)) {
-		player->updatePlayback();
 		scene->draw(window);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
-	delete player;
 	delete scene;
 
 	glfwTerminate();

@@ -6,8 +6,7 @@
 #include "skybox.h"
 #include "panel.hpp"
 #include "plane.hpp"
-#include "audioplayer.hpp"
-#include "meshv2.hpp"
+#include "mesh.hpp"
 #include "shader_manager.hpp"
 
 class Scene
@@ -25,7 +24,7 @@ public:
 private:
 	Camera*	camera;
 
-	meshv2* test;
+	mesh* test;
 
 	Plane*	plane;
 
