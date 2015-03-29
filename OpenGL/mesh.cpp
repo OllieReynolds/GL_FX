@@ -1,6 +1,6 @@
-#include "meshv2.hpp"
+#include "mesh.hpp"
 
-float meshv2::vertices[36] = {
+float mesh::vertices[36] = {
 		-1.0f,  1.0f,  1.0f,
 		-1.0f, -1.0f,  1.0f,
 		 1.0f,  1.0f,  1.0f,
@@ -11,7 +11,7 @@ float meshv2::vertices[36] = {
 		 1.0f, -1.0f, -1.0f
 };
 
-float meshv2::uvs[36] = { 
+float mesh::uvs[36] = { 
 		0.5f, 0.25f, 0.5f,
 		0.1f, 0.8f, 0.7f,
 		0.5f, 0.25f, 0.5f,
@@ -22,7 +22,7 @@ float meshv2::uvs[36] = {
 		0.1f, 0.8f, 0.7f
 };
 
-unsigned short meshv2::indices[36] = {
+unsigned short mesh::indices[36] = {
 		0, 1, 2,
 		2, 3, 1, 
 		1, 5, 3,
@@ -37,7 +37,7 @@ unsigned short meshv2::indices[36] = {
 		7, 6, 2
 };
 
-meshv2::meshv2() { 
+mesh::mesh() { 
 	assert(vertices && uvs);
 
 	glGenVertexArrays(1, &vao);
@@ -70,7 +70,7 @@ meshv2::meshv2() {
 
 }
 
-meshv2::~meshv2() {
+mesh::~mesh() {
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(2);
@@ -84,7 +84,7 @@ meshv2::~meshv2() {
 }
 
 
-void meshv2::draw(Shader* shader) {
+void mesh::draw(Shader* shader) {
 	glm::mat4 MV = Camera::viewMatrix * modelMatrix;
 	glm::mat4 MVP = Camera::projMatrix * MV;
 

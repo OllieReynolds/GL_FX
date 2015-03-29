@@ -5,11 +5,11 @@
 
 #include "include\GLM-0.9.4.4\glm.hpp"
 
-class meshv2 : public Drawable
+class mesh : public Drawable
 {
 public:
-	meshv2();
-	~meshv2();
+	mesh();
+	~mesh();
 
 	void draw(Shader* shader);
 
