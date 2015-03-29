@@ -18,5 +18,9 @@ public:
 	static unsigned short indices[36];
 
 	glm::mat4 modelMatrix;
+
+	GLuint vao;
+	GLuint vbo[4];
+	int elements;
 };
 
