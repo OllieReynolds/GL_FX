@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="audioplayer.hpp" />
     <ClInclude Include="camera.hpp" />
     <ClInclude Include="constants.hpp" />
     <ClInclude Include="drawable.hpp" />
@@ -32,7 +31,6 @@
     <ClInclude Include="skybox.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="audioplayer.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="drawable.cpp" />
     <ClCompile Include="main.cpp" />
